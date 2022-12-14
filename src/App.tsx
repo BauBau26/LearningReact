@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, ReactNode } from "react";
 import "./App.css";
 
 function App() {
@@ -35,7 +35,16 @@ function ButtonBar() {
         <div className="right-button-div">
           <Button text={"Go to file"} isGreen={false} />
           <Button text={"Add file"} isGreen={false} />
-          <Button text={"Code"} isGreen={true} />
+          <Button
+            text={"Code"}
+            isGreen={true}
+            icon={
+              <path
+                fillRule="evenodd"
+                d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z"
+              ></path>
+            }
+          />
         </div>
       </div>
     </div>
@@ -45,13 +54,32 @@ function ButtonBar() {
 interface ButtonProps {
   text: string;
   isGreen: boolean;
+  icon?: ReactNode;
 }
 
 const Button: FunctionComponent<ButtonProps> = (props) => {
   // if button "is green" then use the green button class, otherwise use the normal one
   const buttonClass = props.isGreen ? "green-button" : "normal-button";
 
-  return <button className={`all-buttons ${buttonClass}`}>{props.text}</button>;
+  return (
+    <button className={`all-buttons ${buttonClass} icon-button`}>
+      {props.icon !== undefined && (
+        // ^ if left statement is false, then stuff after && isn't run and we don't
+        // get ime icon in the page
+        <svg
+          height="16"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="16"
+          data-view-component="true"
+          className="icon-branch"
+        >
+          {props.icon}
+        </svg>
+      )}
+      {props.text}
+    </button>
+  );
 };
 
 export default App;
