@@ -37,9 +37,9 @@ function Counter() {
           </button>
         </div>
         <div className="right-button-div">
-          <Button text={"Go to file"} />
-          <Button text={"Add file"} />
-          <button className="all-buttons green-button">Code</button>
+          <Button text={"Go to file"} isGreen={false} />
+          <Button text={"Add file"} isGreen={false} />
+          <Button text={"Code"} isGreen={true} />
         </div>
       </div>
     </div>
@@ -48,10 +48,14 @@ function Counter() {
 
 interface ButtonProps {
   text: string;
+  isGreen: boolean;
 }
 
 const Button: FunctionComponent<ButtonProps> = (props) => {
-  return <button className="all-buttons normal-button">{props.text}</button>;
+  // if button "is green" then use the green button class, otherwise use the normal one
+  const buttonClass = props.isGreen ? "green-button" : "normal-button";
+
+  return <button className={`all-buttons ${buttonClass}`}>{props.text}</button>;
 };
 
 export default App;
