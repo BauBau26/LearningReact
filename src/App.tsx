@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FunctionComponent, useState } from "react";
 import "./App.css";
 
 function App() {
@@ -37,13 +37,21 @@ function Counter() {
           </button>
         </div>
         <div className="right-button-div">
-          <button className="all-buttons normal-button">Go to file</button>
-          <button className="all-buttons normal-button">Add file</button>
+          <Button text={"Go to file"} />
+          <Button text={"Add file"} />
           <button className="all-buttons green-button">Code</button>
         </div>
       </div>
     </div>
   );
 }
+
+interface ButtonProps {
+  text: string;
+}
+
+const Button: FunctionComponent<ButtonProps> = (props) => {
+  return <button className="all-buttons normal-button">{props.text}</button>;
+};
 
 export default App;
