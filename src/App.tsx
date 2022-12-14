@@ -1,20 +1,16 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent } from "react";
 import "./App.css";
 
 function App() {
-  const todayDate = new Date().toLocaleString();
-
   return (
     <div>
       <h1>Hello and welcome to my webpage</h1>
-      <Counter />
+      <ButtonBar />
     </div>
   );
 }
 
-function Counter() {
-  const [counterValue, setCounterValue] = useState(0);
-
+function ButtonBar() {
   return (
     <div>
       <div className="button-div">
