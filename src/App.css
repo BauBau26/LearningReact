@@ -1,1 +1,50 @@
+.all-buttons {
+  color: white;
+  border-radius: 6px;
+  padding: 5px 16px 5px 16px;
+  border-color: rgba(240, 246, 252, 0.1);
+  border-width: 1px;
+  border-style: solid;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+.all-buttons:hover {
+  transition-duration: 0.5s;
+  border-color: #8b949e;
+}
 
+.normal-button {
+  background-color: #21262d;
+}
+.normal-button:hover {
+  background-color: #30363d;
+}
+
+.green-button {
+  background-color: #238636;
+}
+.green-button:hover {
+  background-color: #2ea043;
+}
+
+.icon-branch {
+  color: #8b949e;
+  fill: currentColor;
+  margin-right: 4px;
+}
+
+.button-div {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.right-button-div {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+.icon-button {
+  display: flex;
+  align-items: center;
+}
