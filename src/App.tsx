@@ -7,7 +7,6 @@ import { FileList } from "./FileList";
 function App() {
   return (
     <div>
-      <h1>Hello and welcome to my webpage</h1>
       <ButtonBar />
     </div>
   );
