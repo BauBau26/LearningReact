@@ -30,7 +30,7 @@ function ButtonBar() {
 
   return (
     <div className="button-bar-and-files">
-      <div className="button-div">
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div>
           <Button text="main" icon={<BranchIcon />} />
         </div>

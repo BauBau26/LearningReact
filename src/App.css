@@ -4,12 +4,6 @@
   margin-right: 4px;
 }
 
-.button-div {
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-}
-
 .right-button-div {
   display: flex;
   align-items: stretch;
