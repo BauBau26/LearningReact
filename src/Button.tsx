@@ -17,7 +17,7 @@ export const Button: FunctionComponent<ButtonProps> = (props) => {
     <button className={`all-buttons ${buttonClass} icon-button`}>
       {props.icon !== undefined && (
         // ^ if left statement is false, then stuff after && isn't run and we don't
-        // get ime icon in the page
+        // get the icon in the button
         <svg
           style={{ alignSelf: "center" }}
           height="16"
