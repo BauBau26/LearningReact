@@ -17,7 +17,6 @@ function ButtonBar() {
         <div>
           <Button
             text="main"
-            isGreen={false}
             icon={
               <path
                 fillRule="evenodd"
@@ -27,8 +26,8 @@ function ButtonBar() {
           />
         </div>
         <div className="right-button-div">
-          <Button text={"Go to file"} isGreen={false} />
-          <Button text={"Add file"} isGreen={false} />
+          <Button text={"Go to file"} />
+          <Button text={"Add file"} />
           <Button
             text={"Code"}
             isGreen={true}
@@ -47,7 +46,7 @@ function ButtonBar() {
 
 interface ButtonProps {
   text: string;
-  isGreen: boolean;
+  isGreen?: boolean;
   icon?: ReactNode;
 }
 
