@@ -17,6 +17,7 @@ export const Button: FunctionComponent<ButtonProps> = (props) => {
         // ^ if left statement is false, then stuff after && isn't run and we don't
         // get ime icon in the page
         <svg
+          style={{ alignSelf: "center" }}
           height="16"
           viewBox="0 0 16 16"
           version="1.1"
