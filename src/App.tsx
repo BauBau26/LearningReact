@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { BranchIcon } from "./BranchIcon";
 import { Button } from "./Button";
+import { CodeIcon } from "./CodeIcon";
 import { File } from "./File";
 import { FileList } from "./FileList";
 
@@ -36,16 +37,7 @@ function ButtonBar() {
         <div className="right-button-div">
           <Button text={"Go to file"} />
           <Button text={"Add file"} />
-          <Button
-            text={"Code"}
-            isGreen={true}
-            icon={
-              <path
-                fillRule="evenodd"
-                d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z"
-              ></path>
-            }
-          />
+          <Button text={"Code"} isGreen={true} icon={<CodeIcon />} />
         </div>
       </div>
       <div className="files-and-folders">
