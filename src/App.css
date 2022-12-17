@@ -3,6 +3,11 @@
   fill: currentColor;
 }
 
+.icon-white {
+  color: white;
+  fill: currentColor;
+}
+
 .right-button-div {
   display: flex;
   align-items: stretch;
