@@ -22,7 +22,7 @@ export const Button: FunctionComponent<ButtonProps> = (props) => {
           version="1.1"
           width="16"
           data-view-component="true"
-          className="icon-branch"
+          className="icon"
         >
           {props.icon}
         </svg>

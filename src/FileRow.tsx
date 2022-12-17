@@ -15,7 +15,7 @@ export const FileRow: FunctionComponent<{
           version="1.1"
           width="16"
           data-view-component="true"
-          className="icon-branch"
+          className="icon"
         >
           <FileIcon />
         </svg>
