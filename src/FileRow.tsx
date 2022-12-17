@@ -22,7 +22,11 @@ export const FileRow: FunctionComponent<{
         {props.file.name}
       </div>
       <div>{props.file.changeDescription}</div>
-      <div>{props.file.lastChanged.toDateString()}</div>
+      <div>
+        {props.file.lastChanged.toLocaleDateString(undefined, {
+          dateStyle: "short",
+        })}
+      </div>
     </div>
   );
 };
