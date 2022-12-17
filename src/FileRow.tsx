@@ -7,7 +7,7 @@ export const FileRow: FunctionComponent<{
 }> = (props) => {
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <div style={{ display: "flex", alignItems: "baseline" }}>
+      <div style={{ gap: "0.25rem", display: "flex", alignItems: "baseline" }}>
         <svg
           style={{ alignSelf: "center" }}
           height="16"
