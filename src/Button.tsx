@@ -1,4 +1,5 @@
 import { FunctionComponent, ReactNode } from "react";
+import "./Button.css";
 
 interface ButtonProps {
   text: string;

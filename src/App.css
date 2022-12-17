@@ -1,31 +1,3 @@
-.all-buttons {
-  color: white;
-  border-radius: 6px;
-  padding: 5px 16px 5px 16px;
-  border-color: rgba(240, 246, 252, 0.1);
-  border-width: 1px;
-  border-style: solid;
-}
-
-.all-buttons:hover {
-  transition-duration: 0.5s;
-  border-color: #8b949e;
-}
-
-.normal-button {
-  background-color: #21262d;
-}
-.normal-button:hover {
-  background-color: #30363d;
-}
-
-.green-button {
-  background-color: #238636;
-}
-.green-button:hover {
-  background-color: #2ea043;
-}
-
 .icon-branch {
   color: #8b949e;
   fill: currentColor;
@@ -42,10 +14,6 @@
   display: flex;
   align-items: stretch;
   gap: 8px;
-}
-.icon-button {
-  display: flex;
-  align-items: center;
 }
 
 .button-bar-and-files {
@@ -74,8 +42,4 @@
   display: flex;
   gap: 0.5rem;
   flex-direction: column;
-}
-.file-row {
-  display: flex;
-  justify-content: space-between;
 }

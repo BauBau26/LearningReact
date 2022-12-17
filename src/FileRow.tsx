@@ -6,9 +6,10 @@ export const FileRow: FunctionComponent<{
   file: File;
 }> = (props) => {
   return (
-    <div className="file-row">
-      <div>
+    <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div style={{ display: "flex", alignItems: "baseline" }}>
         <svg
+          style={{ alignSelf: "center" }}
           height="16"
           viewBox="0 0 16 16"
           version="1.1"
