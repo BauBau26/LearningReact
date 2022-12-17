@@ -1,5 +1,8 @@
+import { useState } from "react";
 import "./App.css";
 import { Button } from "./Button";
+import { File } from "./File";
+import { FileList } from "./FileList";
 
 function App() {
   return (
@@ -11,8 +14,21 @@ function App() {
 }
 
 function ButtonBar() {
+  const [files, setFiles] = useState<File[]>([
+    {
+      name: "App.tsx",
+      changeDescription: "Give Button its own file",
+      lastChanged: new Date(2022, 11, 17),
+    },
+    {
+      name: "App.css",
+      changeDescription: "Change font",
+      lastChanged: new Date(2022, 11, 14),
+    },
+  ]);
+
   return (
-    <div>
+    <div className="button-bar-and-files">
       <div className="button-div">
         <div>
           <Button
@@ -39,6 +55,10 @@ function ButtonBar() {
             }
           />
         </div>
+      </div>
+      <div className="files-and-folders">
+        <div className="summary">title</div>
+        <FileList files={files} />
       </div>
     </div>
   );
