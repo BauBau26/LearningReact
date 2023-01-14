@@ -1,5 +1,25 @@
 import { FunctionComponent } from "react";
 
-export const AddFileDialog: FunctionComponent<{ open: boolean }> = (props) => {
-  return <dialog open={props.open}>Add file</dialog>;
+interface AddFileDialogProps {
+  open: boolean;
+  onClose: () => void;
+}
+
+export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
+  return (
+    <dialog
+      aria-modal={true}
+      style={{ width: "400px", height: "300px" }}
+      open={props.open}
+    >
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          Add file <button onClick={props.onClose}>X</button>
+        </div>
+        <div>
+          <button>Ok</button>
+        </div>
+      </div>
+    </dialog>
+  );
 };

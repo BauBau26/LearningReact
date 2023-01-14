@@ -34,7 +34,11 @@ function ButtonBar() {
     <div className="button-bar-and-files">
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div>
-          <Button text="main" icon={<BranchIcon />} />
+          <Button
+            text="main"
+            icon={<BranchIcon />}
+            onClick={() => alert("clicked!")}
+          />
         </div>
         <div className="right-button-div">
           <Button text={"Go to file"} />
@@ -46,7 +50,7 @@ function ButtonBar() {
         <div className="summary">title</div>
         <FileList files={files} />
       </div>
-      <AddFileDialog open={addFileOpen} />
+      <AddFileDialog open={addFileOpen} onClose={() => setAddFileOpen(false)} />
     </div>
   );
 }
