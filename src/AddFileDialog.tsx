@@ -17,6 +17,15 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
           Add file <button onClick={props.onClose}>X</button>
         </div>
         <div>
+          filename
+          <input />
+        </div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          contents
+          <input />
+        </div>
+
+        <div>
           <button>Ok</button>
         </div>
       </div>
