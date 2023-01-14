@@ -11,7 +11,7 @@ interface AddFileDialogProps {
 
 export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
   return (
-    <Dialog className="dialog" open={props.open}>
+    <Dialog className="dialog" show={props.open}>
       <div
         style={{
           display: "flex",
