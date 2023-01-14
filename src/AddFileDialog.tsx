@@ -18,19 +18,33 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
       }}
       open={props.open}
     >
-      <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          flex: 1,
+          gap: "0.5rem",
+        }}
+      >
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           Add file <button onClick={props.onClose}>X</button>
         </div>
-        <div style={{ display: "flex" }}>
-          filename
+        <div style={{ display: "flex", gap: "0.5rem" }}>
+          File name
           <input style={{ flex: 1 }} />
         </div>
-        <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
-          contents
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flex: 1,
+            gap: "0.5rem",
+          }}
+        >
+          Contents
           <textarea style={{ flex: 1 }} />
         </div>
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", gap: "0.5rem" }}>
           Message
           <input style={{ flex: 1 }} />
           <button>Commit</button>
