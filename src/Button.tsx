@@ -5,6 +5,7 @@ interface ButtonProps {
   text: string;
   isGreen?: boolean;
   icon?: ReactNode;
+  onClick?: () => void;
 }
 
 export const Button: FunctionComponent<ButtonProps> = (props) => {
@@ -14,7 +15,10 @@ export const Button: FunctionComponent<ButtonProps> = (props) => {
   const iconClass = props.isGreen ? "icon-white" : "icon";
 
   return (
-    <button className={`all-buttons ${buttonClass} icon-button`}>
+    <button
+      className={`all-buttons ${buttonClass} icon-button`}
+      onClick={props.onClick}
+    >
       {props.icon !== undefined && (
         // ^ if left statement is false, then stuff after && isn't run and we don't
         // get the icon in the button
