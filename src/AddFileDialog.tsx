@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import { Button } from "./Button";
 
 import "./AddFileDialog.css";
+import { Dialog } from "./Dialog";
 
 interface AddFileDialogProps {
   open: boolean;
@@ -10,7 +11,7 @@ interface AddFileDialogProps {
 
 export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
   return (
-    <dialog aria-modal={true} className="dialog" open={props.open}>
+    <Dialog className="dialog" open={props.open}>
       <div
         style={{
           display: "flex",
@@ -47,6 +48,6 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
           <Button text="Commit" />
         </div>
       </div>
-    </dialog>
+    </Dialog>
   );
 };
