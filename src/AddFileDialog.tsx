@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { Button } from "./Button";
 
 interface AddFileDialogProps {
   open: boolean;
@@ -44,10 +45,10 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
           Contents
           <textarea style={{ flex: 1 }} />
         </div>
-        <div style={{ display: "flex", gap: "0.5rem" }}>
+        <div style={{ display: "flex", gap: "0.5rem", alignItems: "baseline" }}>
           Message
           <input style={{ flex: 1 }} />
-          <button>Commit</button>
+          <Button text="Commit" />
         </div>
       </div>
     </dialog>
