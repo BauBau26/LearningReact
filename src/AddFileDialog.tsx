@@ -20,7 +20,6 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
           display: "flex",
           flexDirection: "column",
           width: "400px",
-          height: "300px",
           gap: "0.5rem",
         }}
       >
@@ -40,7 +39,11 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
           }}
         >
           Contents
-          <textarea className="text-box" style={{ flex: 1 }} />
+          <textarea
+            className="text-box"
+            rows={10}
+            style={{ resize: "vertical" }}
+          />
         </div>
         <div style={{ display: "flex", gap: "0.5rem", alignItems: "baseline" }}>
           Message
