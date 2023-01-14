@@ -11,11 +11,6 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
     <dialog
       aria-modal={true}
       style={{
-        width: "400px",
-        height: "300px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "20px",
         backgroundColor: "#0d1117",
       }}
       open={props.open}
@@ -24,7 +19,8 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
         style={{
           display: "flex",
           flexDirection: "column",
-          flex: 1,
+          width: "400px",
+          height: "300px",
           gap: "0.5rem",
         }}
       >
