@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AddFileDialog } from "./AddFileDialog";
 import "./App.css";
 import { BranchIcon } from "./BranchIcon";
 import { Button } from "./Button";
@@ -27,6 +28,7 @@ function ButtonBar() {
       lastChanged: new Date(2022, 11, 14),
     },
   ]);
+  const [addFileOpen, setAddFileOpen] = useState(false);
 
   return (
     <div className="button-bar-and-files">
@@ -36,7 +38,7 @@ function ButtonBar() {
         </div>
         <div className="right-button-div">
           <Button text={"Go to file"} />
-          <Button text={"Add file"} />
+          <Button text={"Add file"} onClick={() => setAddFileOpen(true)} />
           <Button text={"Code"} isGreen={true} icon={<CodeIcon />} />
         </div>
       </div>
@@ -44,6 +46,7 @@ function ButtonBar() {
         <div className="summary">title</div>
         <FileList files={files} />
       </div>
+      <AddFileDialog open={addFileOpen} />
     </div>
   );
 }
