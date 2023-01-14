@@ -25,10 +25,9 @@ function App() {
     <div>
       <div className="button-bar-and-files">
         <ButtonBar onClickAddFileButton={() => setAddFileOpen(true)} />
-        <div className="files-and-folders">
-          <div className="summary">title</div>
-          <FileList files={files} />
-        </div>
+
+        <FileList files={files} />
+
         <AddFileDialog
           open={addFileOpen}
           onClose={() => setAddFileOpen(false)}
