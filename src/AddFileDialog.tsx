@@ -1,6 +1,8 @@
 import { FunctionComponent } from "react";
 import { Button } from "./Button";
 
+import "./AddFileDialog.css";
+
 interface AddFileDialogProps {
   open: boolean;
   onClose: () => void;
@@ -8,15 +10,7 @@ interface AddFileDialogProps {
 
 export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
   return (
-    <dialog
-      aria-modal={true}
-      style={{
-        backgroundColor: "#0d1117",
-        top: "50%",
-        transform: "translate(0, -50%)",
-      }}
-      open={props.open}
-    >
+    <dialog aria-modal={true} className="dialog" open={props.open}>
       <div
         style={{
           display: "flex",
