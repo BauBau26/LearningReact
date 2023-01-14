@@ -12,6 +12,8 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
       aria-modal={true}
       style={{
         backgroundColor: "#0d1117",
+        top: "50%",
+        transform: "translate(0, -50%)",
       }}
       open={props.open}
     >
