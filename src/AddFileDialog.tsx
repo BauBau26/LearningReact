@@ -16,6 +16,7 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
         display: "flex",
         flexDirection: "column",
         gap: "20px",
+        backgroundColor: "#0d1117",
       }}
       open={props.open}
     >
@@ -32,7 +33,7 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
         </div>
         <div style={{ display: "flex", gap: "0.5rem" }}>
           File name
-          <input style={{ flex: 1 }} />
+          <input className="text-box" style={{ flex: 1 }} />
         </div>
         <div
           style={{
@@ -43,11 +44,11 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
           }}
         >
           Contents
-          <textarea style={{ flex: 1 }} />
+          <textarea className="text-box" style={{ flex: 1 }} />
         </div>
         <div style={{ display: "flex", gap: "0.5rem", alignItems: "baseline" }}>
           Message
-          <input style={{ flex: 1 }} />
+          <input className="text-box" style={{ flex: 1 }} />
           <Button text="Commit" />
         </div>
       </div>

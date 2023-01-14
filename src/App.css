@@ -41,3 +41,12 @@
   gap: 0.5rem;
   flex-direction: column;
 }
+
+.text-box {
+  background-color: rgb(13, 17, 23);
+  border-radius: 0.25rem;
+  border-color: #30363d;
+  border-width: 1px;
+  border-style: solid;
+  padding: 5px 12px;
+}
