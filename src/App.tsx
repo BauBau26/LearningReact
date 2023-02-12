@@ -11,11 +11,18 @@ function App() {
   const [files, setFiles] = useState<File[]>([
     {
       fileName: "App.tsx",
+      contents: `function App() { 
+        return () => <>Hi<>
+      }`,
       lastMessage: "Give Button its own file",
       lastChanged: new Date(2022, 11, 17),
     },
     {
       fileName: "App.css",
+      contents: `.icon {
+        color: #8b949e;
+        fill: currentColor;
+      }`,
       lastMessage: "Change font",
       lastChanged: new Date(2022, 11, 14),
     },
@@ -35,6 +42,7 @@ function App() {
             setFiles([
               {
                 fileName: fileDetails.fileName,
+                contents: fileDetails.contents,
                 lastMessage: fileDetails.message,
                 lastChanged: new Date(),
               },
