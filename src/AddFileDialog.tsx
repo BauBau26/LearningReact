@@ -7,6 +7,7 @@ import { Dialog } from "./Dialog";
 interface AddFileDialogProps {
   open: boolean;
   onClose: () => void;
+  onCommit: () => void;
 }
 
 export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
@@ -45,7 +46,7 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
         <div style={{ display: "flex", gap: "0.5rem", alignItems: "baseline" }}>
           Message
           <input className="text-box" style={{ flex: 1 }} />
-          <Button text="Commit" />
+          <Button text="Commit" onClick={props.onCommit} />
         </div>
       </div>
     </Dialog>

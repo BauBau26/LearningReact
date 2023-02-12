@@ -31,6 +31,7 @@ function App() {
         <AddFileDialog
           open={addFileOpen}
           onClose={() => setAddFileOpen(false)}
+          onCommit={() => setAddFileOpen(false)}
         />
       </div>
     </div>
