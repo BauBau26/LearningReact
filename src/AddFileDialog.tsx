@@ -18,6 +18,13 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
   const [fileName, setFileName] = useState("");
   const [contents, setContents] = useState("");
   const [message, setMessage] = useState("");
+
+  const clearFields = () => {
+    setContents("");
+    setFileName("");
+    setMessage("");
+  };
+
   return (
     <Dialog className="dialog" show={props.open}>
       <div
@@ -29,7 +36,15 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
         }}
       >
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          Add file <button onClick={props.onClose}>X</button>
+          Add file{" "}
+          <button
+            onClick={() => {
+              clearFields();
+              props.onClose();
+            }}
+          >
+            X
+          </button>
         </div>
         <div style={{ display: "flex", alignItems: "baseline", gap: "0.5rem" }}>
           File name
@@ -67,13 +82,15 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
           />
           <Button
             text="Commit"
-            onClick={() =>
+            onClick={() => {
               props.onCommit({
                 contents: contents,
                 fileName: fileName,
                 message: message,
-              })
-            }
+              });
+
+              clearFields();
+            }}
           />
         </div>
       </div>
