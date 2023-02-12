@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import { Button } from "./Button";
 
 import "./AddFileDialog.css";
@@ -15,6 +15,8 @@ interface FileDetails {
   message: string;
 }
 export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
+  const [fileName, setFileName] = useState("");
+
   return (
     <Dialog className="dialog" show={props.open}>
       <div
@@ -30,7 +32,12 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
         </div>
         <div style={{ display: "flex", alignItems: "baseline", gap: "0.5rem" }}>
           File name
-          <input className="text-box" style={{ flex: 1 }} />
+          <input
+            value={fileName}
+            onChange={(e) => setFileName(e.target.value)}
+            className="text-box"
+            style={{ flex: 1 }}
+          />
         </div>
         <div
           style={{
@@ -55,7 +62,7 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
             onClick={() =>
               props.onCommit({
                 contents: "contents",
-                fileName: "file name",
+                fileName: fileName,
                 message: "message",
               })
             }
