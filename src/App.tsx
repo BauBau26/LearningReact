@@ -18,18 +18,18 @@ function App() {
     {
       fileName: "App.tsx",
       contents: `function App() { 
-        return () => <>Hi<>
-      }`,
-      lastMessage: "Give Button its own file",
+  return <>Hi<>
+}`,
+      lastMessage: "Add greeting message",
       lastChanged: new Date(2022, 11, 17),
     },
     {
       fileName: "App.css",
-      contents: `.icon {
-        color: #8b949e;
-        fill: currentColor;
-      }`,
-      lastMessage: "Change font",
+      contents: `body {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0d1117;
+}`,
+      lastMessage: "Change text color",
       lastChanged: new Date(2022, 11, 14),
     },
   ]);
