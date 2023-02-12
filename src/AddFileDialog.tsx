@@ -23,7 +23,7 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           Add file <button onClick={props.onClose}>X</button>
         </div>
-        <div style={{ display: "flex", gap: "0.5rem" }}>
+        <div style={{ display: "flex", alignItems: "baseline", gap: "0.5rem" }}>
           File name
           <input className="text-box" style={{ flex: 1 }} />
         </div>
