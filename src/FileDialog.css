@@ -1,5 +1,7 @@
 .dialog {
+  position: absolute;
+  width: calc(100vw - 100px);
+  max-width: 1000px;
+  height: calc(100vh - 100px);
   background-color: #0d1117;
-  top: 50%;
-  transform: translate(0, -50%);
 }

@@ -24,9 +24,9 @@ export const FileDialog: FunctionComponent<FileDialogProps> = (props) => {
     <Dialog className="dialog" show={props.open}>
       <div
         style={{
+          height: "100%",
           display: "flex",
           flexDirection: "column",
-          width: "400px",
           gap: "0.5rem",
         }}
       >
@@ -57,8 +57,7 @@ export const FileDialog: FunctionComponent<FileDialogProps> = (props) => {
           Contents
           <textarea
             className="text-box"
-            rows={10}
-            style={{ resize: "vertical" }}
+            style={{ flex: 1, resize: "none" }}
             value={props.fields.contents}
             onChange={(e) =>
               props.setFields({ ...props.fields, contents: e.target.value })
