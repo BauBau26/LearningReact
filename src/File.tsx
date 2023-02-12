@@ -1,5 +1,5 @@
 export interface File {
-  changeDescription: string;
-  name: string;
+  fileName: string;
+  lastMessage: string;
   lastChanged: Date;
 }

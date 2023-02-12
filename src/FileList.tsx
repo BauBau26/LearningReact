@@ -10,7 +10,7 @@ export const FileList: FunctionComponent<{
       <div className="summary">title</div>
       <div id="file-list" className="file-list">
         {props.files.map((file) => (
-          <FileRow key={file.name} file={file} />
+          <FileRow key={file.fileName} file={file} />
         ))}
       </div>
     </div>

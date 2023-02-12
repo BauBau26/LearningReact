@@ -10,13 +10,13 @@ function App() {
 
   const [files, setFiles] = useState<File[]>([
     {
-      name: "App.tsx",
-      changeDescription: "Give Button its own file",
+      fileName: "App.tsx",
+      lastMessage: "Give Button its own file",
       lastChanged: new Date(2022, 11, 17),
     },
     {
-      name: "App.css",
-      changeDescription: "Change font",
+      fileName: "App.css",
+      lastMessage: "Change font",
       lastChanged: new Date(2022, 11, 14),
     },
   ]);
@@ -34,8 +34,8 @@ function App() {
           onCommit={(fileDetails) => {
             setFiles([
               {
-                name: fileDetails.fileName,
-                changeDescription: fileDetails.message,
+                fileName: fileDetails.fileName,
+                lastMessage: fileDetails.message,
                 lastChanged: new Date(),
               },
               ...files,

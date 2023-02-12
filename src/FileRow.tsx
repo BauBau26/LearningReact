@@ -19,9 +19,9 @@ export const FileRow: FunctionComponent<{
         >
           <FileIcon />
         </svg>
-        {props.file.name}
+        {props.file.fileName}
       </div>
-      <div>{props.file.changeDescription}</div>
+      <div>{props.file.lastMessage}</div>
       <div>
         {props.file.lastChanged.toLocaleDateString(undefined, {
           dateStyle: "short",
