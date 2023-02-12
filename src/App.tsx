@@ -58,7 +58,7 @@ function App() {
             setFileDialogFields({
               contents: file.contents,
               fileName: file.fileName,
-              message: file.lastMessage,
+              message: "",
             });
           }}
         />
