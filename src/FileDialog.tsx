@@ -57,7 +57,7 @@ export const FileDialog: FunctionComponent<FileDialogProps> = (props) => {
           Contents
           <textarea
             className="text-box"
-            style={{ flex: 1, resize: "none" }}
+            style={{ flex: 1, resize: "none", fontFamily: "monospace" }}
             value={props.fields.contents}
             onChange={(e) =>
               props.setFields({ ...props.fields, contents: e.target.value })
