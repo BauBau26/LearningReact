@@ -1,25 +1,25 @@
 import { FunctionComponent } from "react";
 import { Button } from "./Button";
 
-import "./AddFileDialog.css";
+import "./FileDialog.css";
 import { Dialog } from "./Dialog";
 
-interface AddFileDialogProps {
+interface FileDialogProps {
   editing: boolean;
   open: boolean;
-  fields: AddFileDialogFields;
-  setFields: (fields: AddFileDialogFields) => void;
+  fields: FileDialogFields;
+  setFields: (fields: FileDialogFields) => void;
   onClose: () => void;
   onCommit: () => void;
 }
 
-export interface AddFileDialogFields {
+export interface FileDialogFields {
   fileName: string;
   contents: string;
   message: string;
 }
 
-export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
+export const FileDialog: FunctionComponent<FileDialogProps> = (props) => {
   return (
     <Dialog className="dialog" show={props.open}>
       <div
