@@ -31,7 +31,17 @@ function App() {
         <AddFileDialog
           open={addFileOpen}
           onClose={() => setAddFileOpen(false)}
-          onCommit={() => setAddFileOpen(false)}
+          onCommit={(fileDetails) => {
+            setFiles([
+              {
+                name: fileDetails.fileName,
+                changeDescription: fileDetails.message,
+                lastChanged: new Date(),
+              },
+              ...files,
+            ]);
+            setAddFileOpen(false);
+          }}
         />
       </div>
     </div>

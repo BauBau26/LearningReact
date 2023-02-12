@@ -7,9 +7,13 @@ import { Dialog } from "./Dialog";
 interface AddFileDialogProps {
   open: boolean;
   onClose: () => void;
-  onCommit: () => void;
+  onCommit: (fileDetails: FileDetails) => void;
 }
-
+interface FileDetails {
+  fileName: string;
+  contents: string;
+  message: string;
+}
 export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
   return (
     <Dialog className="dialog" show={props.open}>
@@ -46,7 +50,16 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
         <div style={{ display: "flex", gap: "0.5rem", alignItems: "baseline" }}>
           Message
           <input className="text-box" style={{ flex: 1 }} />
-          <Button text="Commit" onClick={props.onCommit} />
+          <Button
+            text="Commit"
+            onClick={() =>
+              props.onCommit({
+                contents: "contents",
+                fileName: "file name",
+                message: "message",
+              })
+            }
+          />
         </div>
       </div>
     </Dialog>
