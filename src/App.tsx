@@ -1,12 +1,20 @@
 import { useState } from "react";
-import { AddFileDialog } from "./AddFileDialog";
+import { AddFileDialog, AddFileDialogFields } from "./AddFileDialog";
 import "./App.css";
 import { ButtonBar } from "./ButtonBar";
 import { File } from "./File";
 import { FileList } from "./FileList";
 
 function App() {
+  const [addFileEdit, setAddFileEdit] = useState(false);
   const [addFileOpen, setAddFileOpen] = useState(false);
+  const [fileDialogFields, setFileDialogFields] = useState<AddFileDialogFields>(
+    {
+      fileName: "",
+      contents: "",
+      message: "",
+    }
+  );
 
   const [files, setFiles] = useState<File[]>([
     {
@@ -28,27 +36,69 @@ function App() {
     },
   ]);
 
+  const clearFields = () => {
+    setFileDialogFields({ contents: "", fileName: "", message: "" });
+  };
+
   return (
     <div>
       <div className="button-bar-and-files">
-        <ButtonBar onClickAddFileButton={() => setAddFileOpen(true)} />
+        <ButtonBar
+          onClickAddFileButton={() => {
+            setAddFileEdit(false);
+            setAddFileOpen(true);
+          }}
+        />
 
-        <FileList files={files} />
+        <FileList
+          files={files}
+          onEditFile={(file: File) => {
+            setAddFileEdit(true);
+            setAddFileOpen(true);
+            setFileDialogFields({
+              contents: file.contents,
+              fileName: file.fileName,
+              message: file.lastMessage,
+            });
+          }}
+        />
 
         <AddFileDialog
+          editing={addFileEdit}
+          fields={fileDialogFields}
+          setFields={setFileDialogFields}
           open={addFileOpen}
-          onClose={() => setAddFileOpen(false)}
-          onCommit={(fileDetails) => {
-            setFiles([
-              {
-                fileName: fileDetails.fileName,
-                contents: fileDetails.contents,
-                lastMessage: fileDetails.message,
-                lastChanged: new Date(),
-              },
-              ...files,
-            ]);
+          onClose={() => {
             setAddFileOpen(false);
+            clearFields();
+          }}
+          onCommit={() => {
+            if (addFileEdit) {
+              setFiles([
+                {
+                  fileName: fileDialogFields.fileName,
+                  contents: fileDialogFields.contents,
+                  lastMessage: fileDialogFields.message,
+                  lastChanged: new Date(),
+                },
+                ...files.filter(
+                  (f) => f.fileName !== fileDialogFields.fileName
+                ),
+              ]);
+            } else {
+              setFiles([
+                {
+                  fileName: fileDialogFields.fileName,
+                  contents: fileDialogFields.contents,
+                  lastMessage: fileDialogFields.message,
+                  lastChanged: new Date(),
+                },
+                ...files,
+              ]);
+            }
+
+            setAddFileOpen(false);
+            clearFields();
           }}
         />
       </div>

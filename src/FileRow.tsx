@@ -1,12 +1,21 @@
 import { FunctionComponent } from "react";
+import { Button } from "./Button";
+import { EditIcon } from "./EditIcon";
 import { File } from "./File";
 import { FileIcon } from "./FileIcon";
 
 export const FileRow: FunctionComponent<{
   file: File;
+  onEditFile: (file: File) => void;
 }> = (props) => {
   return (
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "baseline",
+        justifyContent: "space-between",
+      }}
+    >
       <div style={{ gap: "0.25rem", display: "flex", alignItems: "baseline" }}>
         <svg
           style={{ alignSelf: "center" }}
@@ -22,10 +31,15 @@ export const FileRow: FunctionComponent<{
         {props.file.fileName}
       </div>
       <div>{props.file.lastMessage}</div>
-      <div>
+      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
         {props.file.lastChanged.toLocaleDateString(undefined, {
           dateStyle: "short",
         })}
+        <Button
+          icon={<EditIcon />}
+          text={""}
+          onClick={() => props.onEditFile(props.file)}
+        />
       </div>
     </div>
   );

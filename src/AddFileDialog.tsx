@@ -1,30 +1,25 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent } from "react";
 import { Button } from "./Button";
 
 import "./AddFileDialog.css";
 import { Dialog } from "./Dialog";
 
 interface AddFileDialogProps {
+  editing: boolean;
   open: boolean;
+  fields: AddFileDialogFields;
+  setFields: (fields: AddFileDialogFields) => void;
   onClose: () => void;
-  onCommit: (fileDetails: FileDetails) => void;
+  onCommit: () => void;
 }
-interface FileDetails {
+
+export interface AddFileDialogFields {
   fileName: string;
   contents: string;
   message: string;
 }
+
 export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
-  const [fileName, setFileName] = useState("");
-  const [contents, setContents] = useState("");
-  const [message, setMessage] = useState("");
-
-  const clearFields = () => {
-    setContents("");
-    setFileName("");
-    setMessage("");
-  };
-
   return (
     <Dialog className="dialog" show={props.open}>
       <div
@@ -36,21 +31,17 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
         }}
       >
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          Add file{" "}
-          <button
-            onClick={() => {
-              clearFields();
-              props.onClose();
-            }}
-          >
-            X
-          </button>
+          {props.editing ? "Edit" : "Add"} file{" "}
+          <button onClick={() => props.onClose()}>X</button>
         </div>
         <div style={{ display: "flex", alignItems: "baseline", gap: "0.5rem" }}>
           File name
           <input
-            value={fileName}
-            onChange={(e) => setFileName(e.target.value)}
+            disabled={props.editing}
+            value={props.fields.fileName}
+            onChange={(e) =>
+              props.setFields({ ...props.fields, fileName: e.target.value })
+            }
             className="text-box"
             style={{ flex: 1 }}
           />
@@ -68,30 +59,23 @@ export const AddFileDialog: FunctionComponent<AddFileDialogProps> = (props) => {
             className="text-box"
             rows={10}
             style={{ resize: "vertical" }}
-            value={contents}
-            onChange={(e) => setContents(e.target.value)}
+            value={props.fields.contents}
+            onChange={(e) =>
+              props.setFields({ ...props.fields, contents: e.target.value })
+            }
           />
         </div>
         <div style={{ display: "flex", gap: "0.5rem", alignItems: "baseline" }}>
           Message
           <input
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            value={props.fields.message}
+            onChange={(e) =>
+              props.setFields({ ...props.fields, message: e.target.value })
+            }
             className="text-box"
             style={{ flex: 1 }}
           />
-          <Button
-            text="Commit"
-            onClick={() => {
-              props.onCommit({
-                contents: contents,
-                fileName: fileName,
-                message: message,
-              });
-
-              clearFields();
-            }}
-          />
+          <Button text="Commit" onClick={() => props.onCommit()} />
         </div>
       </div>
     </Dialog>
